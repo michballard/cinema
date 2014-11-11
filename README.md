@@ -1,10 +1,10 @@
 Cinema Seating
 ==============
 
-<strong>Aim</strong>
+###Aim
 To create a booking system for cinema seating
 
-<strong>About the cinema</strong>
+###About the cinema
 - 100 rows, each with 50 seats
 - Customers request particular seats when making a booking
 - Bookings are processed on a first-come, first-served basis
@@ -14,14 +14,14 @@ To create a booking system for cinema seating
   - all requested seats are available, and 
   - accepting the booking would not leave a single-seat gap
 
-<strong>Objective</strong>
+###Objective
 To write a system to process a text file of bookings and determine the number of bookings which are rejected
 
-<strong>Testing</strong>
+###Testing
 A sample file (#) has been supplied to test the system and should yield 11 rejected requests.  This can be tested by:
 ```
 [Insert instructions]
 ```
 
-<strong>Technologies used</strong>
+###Technologies used
 - Ruby
