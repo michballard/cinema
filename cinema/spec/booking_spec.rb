@@ -35,16 +35,29 @@ describe Booking do
 
   end 
 
-  # context 'processing a booking' do 
+  context 'processing a booking' do 
+    booking5 = Booking.new("(1,67:44,67:47)")
 
-  #   it 'can accept a booking' do 
+    it 'can accept a booking' do       
+      expect(booking5.status).to eq 'new'
+      booking5.process
+      expect(booking5.status).to eq 'confirmed'
+    end 
 
-  #   end 
+    it 'can reject a booking that is invalid' do 
+      booking6 = Booking.new("(1,67:46,67:50)")
+      expect(booking6.status).to eq 'new'
+      booking6.process
+      expect(booking6.status).to eq 'rejected'
+    end
 
-  #   it 'can decline a booking' do 
+    xit 'can reject a booking if seats are taken' do 
+      booking7 = Booking.new("(1,67:44,67:47)")
+      expect(booking7.status).to eq 'new'
+      booking7.process
+      expect(booking7.status).to eq 'rejected'
+    end 
 
-  #   end 
-
-  # end 
+  end 
 
 end 

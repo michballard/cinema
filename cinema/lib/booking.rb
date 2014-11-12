@@ -1,9 +1,10 @@
 class Booking
   
-  attr_accessor :value, :value_start, :value_end
+  attr_accessor :value, :value_start, :value_end, :status
   
   def initialize(value = "")
     @value = value
+    @status = "new"
   end
 
   def split_booking_reference
@@ -19,6 +20,12 @@ class Booking
     return false if value_start[1] > value_end[1] 
     return false if value_end[1].to_i < 0 || value_end[1].to_i > 49
     true
+  end
+
+  def process
+    return @status = "rejected" unless self.valid?
+    
+    @status = "confirmed"
   end
 
 end
