@@ -18,7 +18,7 @@ describe Booking do
       expect(booking1.valid?).to eq true
     end
 
-    it 'returns false if booking rows are invalid' do 
+    it 'returns false if booking rows are not in valid range between 0 and 99' do 
       booking2 = Booking.new("(1,167:44,167:50)")
       expect(booking2.valid?).to eq false
     end
@@ -28,10 +28,15 @@ describe Booking do
       expect(booking3.valid?).to eq false
     end
 
-    it 'returns false if booking seats are invalid' do 
+    it 'returns false if booking seats are not in valid range between 0 and 49' do 
       booking4 = Booking.new("(1,67:44,67:50)")
       expect(booking4.valid?).to eq false
     end
+
+    it 'returns false if booking is for more than 5 seats' do 
+      booking = Booking.new("(1,0:0,0:6)")
+      expect(booking.valid?).to eq false
+    end 
 
   end 
 

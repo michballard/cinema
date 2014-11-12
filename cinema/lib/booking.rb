@@ -15,11 +15,20 @@ class Booking
 
   def valid?
     split_booking_reference
-    return false if value_start[0] != value_end[0]
-    return false if value_start[0].to_i < 0 || value_start[0].to_i > 99
-    return false if value_start[1] > value_end[1] 
-    return false if value_end[1].to_i < 0 || value_end[1].to_i > 49
+    return false if check_rows == "invalid row"
+    return false if check_seats == "invalid seats"
     true
+  end
+
+  def check_rows
+    return "invalid row" if @value_start[0] != @value_end[0]
+    return "invalid row" if @value_start[0].to_i < 0 || @value_start[0].to_i > 99
+  end
+
+  def check_seats
+    return "invalid seats" if value_start[1] > value_end[1] 
+    return "invalid seats" if value_start[1].to_i < 0 || value_end[1].to_i > 49
+    return "invalid seats" if value_end[1].to_i - value_start[1].to_i > 5
   end
 
   def process
